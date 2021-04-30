@@ -16,10 +16,10 @@ public class SlgDiApplication {
 		ApplicationContext ctx = SpringApplication.run(SlgDiApplication.class, args);
 
 		MyController myController = (MyController) ctx.getBean("myController");
+		System.out.println("---------- Primary Bean");
+		System.out.println(myController.sayHello());
 
-		String greeting = myController.sayHello();
-
-		System.out.println(greeting);
+		
 
 		System.out.println("--------- Property");
 		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
