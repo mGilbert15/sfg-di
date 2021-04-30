@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 import guru.springframework.slgdi.controllers.ConstructorInjectedController;
+import guru.springframework.slgdi.controllers.I18nController;
 import guru.springframework.slgdi.controllers.MyController;
 import guru.springframework.slgdi.controllers.PropertyInjectedController;
 import guru.springframework.slgdi.controllers.SetterInjectedController;
@@ -14,6 +15,10 @@ public class SlgDiApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SlgDiApplication.class, args);
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println("------------ I18nController");
+		System.out.println(i18nController.sayHello());
 
 		MyController myController = (MyController) ctx.getBean("myController");
 		System.out.println("---------- Primary Bean");
